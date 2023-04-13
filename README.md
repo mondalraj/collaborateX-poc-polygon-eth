@@ -1,15 +1,3 @@
-## Getting Started
-
-Create a project using this example:
-
-```bash
-npx thirdweb create --contract --template hardhat-javascript-starter
-```
-
-You can start editing the page by modifying `contracts/Contract.sol`.
-
-To add functionality to your contracts, you can use the `@thirdweb-dev/contracts` package which provides base contracts and extensions to inherit. The package is already installed with this project. Head to our [Contracts Extensions Docs](https://portal.thirdweb.com/contractkit) to learn more.
-
 ## Building the project
 
 After any changes to the contract, run:
@@ -42,6 +30,6 @@ npm run release
 yarn release
 ```
 
-## Join our Discord!
+### Deployed Smart Contracts
 
-For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
+UserProfile.sol Smart Contract - [0x6a9D90bF6EE77d38C01EcCf340Abb094B0829022](https://mumbai.polygonscan.com/tx/0x57ea53d866314eedd59341ead0476d3f765b60070d8044734496522255eff346)
