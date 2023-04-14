@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-contract CollabXContract {
+contract UserProfileContract {
     struct Profile {
         address wallet;
         string name;
