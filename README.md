@@ -32,5 +32,5 @@ yarn release
 
 ### Deployed Smart Contracts
 
-UserProfile.sol Smart Contract - [0x6a9D90bF6EE77d38C01EcCf340Abb094B0829022](https://mumbai.polygonscan.com/tx/0x57ea53d866314eedd59341ead0476d3f765b60070d8044734496522255eff346)
+UserProfile.sol Smart Contract Address - [0x8AaAb53B79b76FAC8851A49C80Ed7DD72F4ca43F](https://mumbai.polygonscan.com/tx/0x56b95ad811fab4ccb0280ecd3ebe48cc612745b500023e9f4b5d2e2f12ee22e4)
 ProjectIdea.sol Smart Contract - [0x6a9D90bF6EE77d38C01EcCf340Abb094B0829022](https://mumbai.polygonscan.com/tx/0x59a728b36b05b1f30a198e316df592a58bc254ddebe750d795bdb81ad17c0798)
