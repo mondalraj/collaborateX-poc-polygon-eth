@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.9;
 
 contract UserProfileContract {
@@ -11,11 +11,15 @@ contract UserProfileContract {
         string[] skills;
         Project[] projects;
         WorkExperience[] workExperience;
+        uint256 upvote_count;
     }
 
     struct Project {
         string name;
         string description;
+        string duration;
+        string link;
+        string[] techStack;
     }
 
     struct WorkExperience {
@@ -50,11 +54,18 @@ contract UserProfileContract {
         newProfile.phone = _phone;
         newProfile.twitterHandle = _twitterHandle;
         newProfile.skills = _skills;
+        newProfile.upvote_count = 0;
 
         // Split the _projects array into individual elements
         for (uint i = 0; i < _projects.length; i++) {
             newProfile.projects.push(
-                Project(_projects[i].name, _projects[i].description)
+                Project(
+                    _projects[i].name,
+                    _projects[i].description,
+                    _projects[i].duration,
+                    _projects[i].link,
+                    _projects[i].techStack
+                )
             );
         }
 
@@ -98,7 +109,13 @@ contract UserProfileContract {
         // Split the _projects array into individual elements
         for (uint i = 0; i < _projects.length; i++) {
             profileToUpdate.projects.push(
-                Project(_projects[i].name, _projects[i].description)
+                Project(
+                    _projects[i].name,
+                    _projects[i].description,
+                    _projects[i].duration,
+                    _projects[i].link,
+                    _projects[i].techStack
+                )
             );
         }
 
@@ -135,5 +152,10 @@ contract UserProfileContract {
             allProfiles[i] = profiles[msg.sender];
         }
         return allProfiles;
+    }
+
+    function upvoteProfile(address _wallet) public {
+        require(profiles[_wallet].wallet != address(0), "Profile doesn't exist");
+        profiles[_wallet].upvote_count++;
     }
 }
