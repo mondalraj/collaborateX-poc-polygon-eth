@@ -7,6 +7,7 @@ contract ProjectIdeaContract {
         string name;
         string description;
         uint256 dateCreated;
+        string[] tags;
         Proposal[] proposals;
         Comment[] comments;
         bool isDeleted;
@@ -31,7 +32,8 @@ contract ProjectIdeaContract {
 
     function createIdea(
         string memory _name,
-        string memory _description
+        string memory _description,
+        string[] memory _tags
     ) public returns (uint256) {
         require(bytes(_name).length > 0, "Idea name cannot be empty");
         require(
@@ -44,7 +46,9 @@ contract ProjectIdeaContract {
         newIdea.creator = msg.sender;
         newIdea.name = _name;
         newIdea.description = _description;
+        newIdea.tags = _tags;
         newIdea.dateCreated = block.timestamp;
+        newIdea.isDeleted = false;
 
         numberOfIdeas++;
 
@@ -73,6 +77,14 @@ contract ProjectIdeaContract {
             if (ideas[i].creator == _creatorAddress) {
                 allIdeas[numberOfIdeasByCreator] = ideas[i];
                 numberOfIdeasByCreator++;
+            }else{
+                // if the idea has a proposal from the user and the proposal is accepted
+                for(uint256 j = 0; j < ideas[i].proposals.length; j++){
+                    if(ideas[i].proposals[j].proposer == _creatorAddress && ideas[i].proposals[j].isAccepted){
+                        allIdeas[numberOfIdeasByCreator] = ideas[i];
+                        numberOfIdeasByCreator++;
+                    }
+                }
             }
         }
 
